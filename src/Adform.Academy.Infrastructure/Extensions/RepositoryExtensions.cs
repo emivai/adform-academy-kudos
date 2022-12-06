@@ -15,6 +15,7 @@ namespace Adform.Academy.Infrastructure.Extensions
             services.AddTransient((sp) => new NpgsqlConnection(connectionString));
 
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IKudosRepository, KudosRepository>();
         }
     }
 }

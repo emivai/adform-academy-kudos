@@ -32,5 +32,17 @@ namespace Adform.Academy.Infrastructure.Repositories
 
             return employees.ToList();
         }
+
+        public async Task<Employee?> GetByIdAsync(int id)
+        {
+            var query = @"SELECT * FROM employee
+                          WHERE id = @id";
+            var employee = await _connection.QueryAsync<Employee>(query, new
+            {
+                id = id
+            });
+
+            return employee.FirstOrDefault();
+        }
     }
 }
