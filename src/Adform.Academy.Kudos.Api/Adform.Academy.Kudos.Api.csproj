@@ -7,7 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Adform.Academy.Infrastructure\Adform.Academy.Infrastructure.csproj" />
+    <ProjectReference Include="..\Adform.Academy.Kudos.Application\Adform.Academy.Kudos.Application.csproj" />
   </ItemGroup>
 
 </Project>
