@@ -70,8 +70,8 @@ namespace Adform.Academy.Kudos.Tests.Services
             Assert.That(ex.Message, Is.EqualTo($"Kudos with id: {1} was not found!"));
         }
 
-        [Test, AutoData]
-        public async Task UpdateAsync_IdDoesNotExist_ShouldThrowKudosNotFoundException(KudosEntity kudos)
+        [Test ]
+        public async Task UpdateAsync_IdDoesNotExist_ShouldThrowKudosNotFoundException()
         {
             _kudosRepositoryMock.Setup(x => x.GetByIdAsync(1)).ReturnsAsync(value: null);
 

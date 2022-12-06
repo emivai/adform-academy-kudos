@@ -35,8 +35,8 @@ namespace Adform.Academy.Kudos.Application.Services
                 throw new EmployeeNotFoundException(receiverId);
             }
 
-            kudos.Sender.Id = senderId;
-            kudos.Receiver.Id = receiverId;
+            kudos.Sender!.Id = senderId;
+            kudos.Receiver!.Id = receiverId;
 
             var id = await _kudosRepository.AddAsync(kudos);
             return id;

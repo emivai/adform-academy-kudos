@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Adform.Academy.Kudos.Api.Controllers
 {
+    /// <summary>
+    /// Controller for kudos operations (creation, retrieval, update).
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class KudosController : ControllerBase
@@ -13,6 +16,11 @@ namespace Adform.Academy.Kudos.Api.Controllers
         private readonly IKudosService _kudosService;
         private readonly IMapper _mapper;
 
+        /// <summary>
+        /// Kudos controller constructor
+        /// </summary>
+        /// <param name="kudosService"></param>
+        /// <param name="mapper"></param>
         public KudosController(IKudosService kudosService, IMapper mapper)
         {
             _kudosService = kudosService;
