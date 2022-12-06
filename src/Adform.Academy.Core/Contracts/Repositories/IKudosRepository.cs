@@ -9,5 +9,11 @@ namespace Adform.Academy.Core.Contracts.Repositories
         public Task<int> AddAsync(KudosEntity kudos);
 
         public Task UpdateAsync(KudosEntity kudos);
+
+        public Task<EmployeeKudosCount> GetMostKudosSentAsync(DateTime date);
+
+        public Task<EmployeeKudosCount> GetMostKudosReceivedAsync(DateTime date);
+
+        public Task<int> GetKudosCountAsync(DateTime date);
     }
 }

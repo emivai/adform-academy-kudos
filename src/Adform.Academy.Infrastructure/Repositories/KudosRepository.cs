@@ -65,6 +65,48 @@ namespace Adform.Academy.Infrastructure.Repositories
             return kudos.FirstOrDefault();
         }
 
+        public async Task<int> GetKudosCountAsync(DateTime date)
+        {
+            var query = @"SELECT COUNT(*) FROM kudos
+                          WHERE date_part('year', sent) = @year AND date_part('month', sent) = @month";
+
+            return await _connection.QuerySingleAsync<int>(query, new
+            {
+                year = date.Year,
+                month = date.Month
+            });
+        }
+
+        public async Task<EmployeeKudosCount> GetMostKudosReceivedAsync(DateTime date)
+        {
+            var query = @"SELECT receiver_id as id, count(*) as count FROM kudos
+                          WHERE date_part('year', sent) = @year AND date_part('month', sent) = @month
+                          GROUP BY receiver_id 
+                          ORDER BY count DESC 
+                          LIMIT 1";
+
+            return await _connection.QuerySingleAsync<EmployeeKudosCount>(query, new
+            {
+                year = date.Year,
+                month = date.Month
+            });
+        }
+
+        public async Task<EmployeeKudosCount> GetMostKudosSentAsync(DateTime date)
+        {
+            var query = @"SELECT sender_id as id, count(*) as count FROM kudos
+                          WHERE date_part('year', sent) = @year AND date_part('month', sent) = @month
+                          GROUP BY sender_id 
+                          ORDER BY count DESC 
+                          LIMIT 1";
+
+            return await _connection.QuerySingleAsync<EmployeeKudosCount>(query, new
+            {
+                year = date.Year,
+                month = date.Month
+            });
+        }
+
         public async Task UpdateAsync(KudosEntity kudos)
         {
             string query = @$"UPDATE kudos
