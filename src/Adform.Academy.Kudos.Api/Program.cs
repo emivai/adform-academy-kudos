@@ -1,6 +1,14 @@
+using Adform.Academy.Infrastructure.Extensions;
+using Adform.Academy.Kudos.Api.MappingProfiles;
+using Adform.Academy.Kudos.Application.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddRepositories(builder.Configuration);
+builder.Services.AddServices();
+builder.Services.AddAutoMapper(typeof(EmployeeMappingProfile));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
