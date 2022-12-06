@@ -36,4 +36,4 @@ Optional:
 
 ## Missing functionality
 
-* Did not have time to implement kudos filtering, whole api docker support
+* Did not have time to implement kudos filtering, whole api docker support, complete unit test coverage
