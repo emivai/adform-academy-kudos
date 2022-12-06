@@ -9,6 +9,7 @@ namespace Adform.Academy.Kudos.Application.Extensions
         public static void AddServices(this IServiceCollection services)
         {
             services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IKudosService, KudosService>();
         }
     }
 }

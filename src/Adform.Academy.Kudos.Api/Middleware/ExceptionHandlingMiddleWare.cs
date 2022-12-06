@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using Adform.Academy.Core.Exceptions;
+using System.Net;
 using System.Text.Json;
 
 namespace Adform.Academy.Kudos.Api.Middleware
@@ -27,6 +28,9 @@ namespace Adform.Academy.Kudos.Api.Middleware
 
                     response.StatusCode = error switch
                     {
+                        KudosNotFoundException => (int)HttpStatusCode.NotFound,
+                        EmployeeNotFoundException => (int)HttpStatusCode.NotFound,
+                        SenderAndReceiverCantBeEqualException => (int)HttpStatusCode.BadRequest,
                         _ => (int)HttpStatusCode.InternalServerError,
                     };
 

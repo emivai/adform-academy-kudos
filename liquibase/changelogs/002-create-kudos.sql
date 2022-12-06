@@ -1,9 +1,9 @@
 CREATE TABLE kudos (
     id SERIAL PRIMARY KEY, 
-    sent_date DATE,
-    reason INTEGER,
-    content TEXT,
-    exchanged BOOLEAN,
-    sender_id INTEGER REFERENCES employee(id),
-    receiver_id INTEGER REFERENCES employee(id)
+    sent TIMESTAMP NOT NULL,
+    reason INTEGER NOT NULL,
+    content TEXT NOT NULL,
+    exchanged BOOLEAN NOT NULL DEFAULT FALSE,
+    sender_id INTEGER REFERENCES employee(id) NOT NULL,
+    receiver_id INTEGER REFERENCES employee(id) NOT NULL
     );
