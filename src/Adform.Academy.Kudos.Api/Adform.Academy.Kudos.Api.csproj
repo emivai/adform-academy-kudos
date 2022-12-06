@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Middleware\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Adform.Academy.Infrastructure\Adform.Academy.Infrastructure.csproj" />
     <ProjectReference Include="..\Adform.Academy.Kudos.Application\Adform.Academy.Kudos.Application.csproj" />
   </ItemGroup>
