@@ -1,6 +1,4 @@
 ﻿using Adform.Academy.Core.Contracts.Services;
-using Adform.Academy.Kudos.Api.Dtos;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Adform.Academy.Kudos.Api.Controllers
@@ -16,7 +14,13 @@ namespace Adform.Academy.Kudos.Api.Controllers
             _kudosReportService = kudosReportService;
         }
 
+        /// <summary>
+        /// Generates report for inputted date containing employee that sent most kudos, employee that received most kudos and total kudos.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Get(DateTime date)
         {
             var kudosReport = await _kudosReportService.GetAsync(date);

@@ -13,8 +13,16 @@ builder.Services.AddAutoMapper(typeof(EmployeeMappingProfile));
 builder.Services.AddAutoMapper(typeof(KudosMappingProfile));
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(o =>
+{
+    var filePath = Path.Combine(System.AppContext.BaseDirectory, "Adform.Academy.Kudos.Api.xml");
+    o.IncludeXmlComments(filePath);
+});
+
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
