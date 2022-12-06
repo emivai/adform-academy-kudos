@@ -26,8 +26,8 @@ namespace Adform.Academy.Infrastructure.Repositories
                 reason = kudos.Reason,
                 content = kudos.Content,
                 exchanged = false,
-                senderId = kudos.Sender.Id,
-                receiverId = kudos.Receiver.Id
+                senderId = kudos.Sender!.Id,
+                receiverId = kudos.Receiver!.Id
             });
         }
 

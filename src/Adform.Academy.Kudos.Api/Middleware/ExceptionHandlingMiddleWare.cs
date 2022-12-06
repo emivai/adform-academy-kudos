@@ -4,8 +4,12 @@ using System.Text.Json;
 
 namespace Adform.Academy.Kudos.Api.Middleware
 {
+    /// <summary>
+    /// Middleware for hangling exceptions.
+    /// </summary>
     public class ExceptionHandlingMiddleWare
     {
+
         public class ExceptionHandlingMiddleware
         {
             private readonly RequestDelegate _next;

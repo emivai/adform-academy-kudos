@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Adform.Academy.Kudos.Api.Controllers
 {
+    /// <summary>
+    /// Controller for employee operations (creation and retrieval).
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class EmployeesController : ControllerBase
@@ -13,6 +16,11 @@ namespace Adform.Academy.Kudos.Api.Controllers
         private readonly IEmployeeService _employeeService;
         private readonly IMapper _mapper;
 
+        /// <summary>
+        /// Constructor for employee controller.
+        /// </summary>
+        /// <param name="employeeService">Service for employee operations logic</param>
+        /// <param name="mapper">Mapper for Employee and EmployeeDto conversion</param>
         public EmployeesController(IEmployeeService employeeService, IMapper mapper)
         {
             _employeeService = employeeService;

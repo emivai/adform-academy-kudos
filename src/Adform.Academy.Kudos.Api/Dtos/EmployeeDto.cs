@@ -2,11 +2,18 @@
 
 namespace Adform.Academy.Kudos.Api.Dtos
 {
+    /// <summary>
+    /// Data transfer object for employee
+    /// </summary>
     public class EmployeeDto
     {
-        [Required]
+        /// <summary>
+        /// Name of employee
+        /// </summary>
         public string? Name { get; set; }
-        [Required]
+        /// <summary>
+        /// Surname of employee
+        /// </summary>
         public string? Surname { get; set; }
     }
 }

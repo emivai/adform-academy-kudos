@@ -15,7 +15,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adform.Academy.Infrastructu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adform.Academy.Kudos.Tests", "tests\Adform.Academy.Kudos.Tests\Adform.Academy.Kudos.Tests.csproj", "{DFA6944B-C00B-4BC3-83A4-237751839D10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adform.Academy.Core", "src\Adform.Academy.Core\Adform.Academy.Core.csproj", "{66DA0A17-CA25-4151-9FE3-DDE8CAB4DCE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adform.Academy.Core", "src\Adform.Academy.Core\Adform.Academy.Core.csproj", "{66DA0A17-CA25-4151-9FE3-DDE8CAB4DCE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{76B1AD1C-B9E2-4CDC-BCDF-61EF89BC5D7A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

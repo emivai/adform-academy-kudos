@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Adform.Academy.Kudos.Api.Controllers
 {
+    /// <summary>
+    /// Controller for generating kudos report for a selected month
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class KudosReportController : ControllerBase
