@@ -26,7 +26,7 @@ Optional:
 
 ### Kudos Endpoint
 
-* Create new kudos
+* Create new kudos (has reason, free text, sender and receiver)
 * View all kudos
 * Mark kudos selected by id as exchanged
 
