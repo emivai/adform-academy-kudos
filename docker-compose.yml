@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: kudos_system
+      #this ENV variable is only required for the healthcheck section - if you don't specify it, the check command will fail stating the root user doesn't exist in posgres
+      PGUSER: "root"
+    ports:
+      - "8003:5432"   
+    restart: unless-stopped
+    healthcheck:
+      #CHANGE 1: this command checks if the database is ready, right on the source db server
+      test: [ "CMD-SHELL", "pg_isready -d kudos_system" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  liquibase:
+    build: ./liquibase/
+    depends_on:
+      #CHANGE 2: it prevents issuing a request while the server is starting to depend on the healthy status of postgres-db 
+      postgres:
+        condition: service_healthy
+    command: liquibase --url=jdbc:postgresql://postgres:5432/kudos_system --username=root --password=root update
