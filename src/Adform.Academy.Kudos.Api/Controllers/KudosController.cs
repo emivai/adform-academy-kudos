@@ -19,9 +19,19 @@ namespace Adform.Academy.Kudos.Api.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Creates new kudos entry.
+        /// </summary>
+        /// <param name="kudosDto"></param>
+        /// <returns>Kudos created.</returns>
         [HttpPost]
         public async Task<IActionResult> Add(CreateKudosDto kudosDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
+
             var kudos = _mapper.Map<KudosEntity>(kudosDto);
 
             var id = await _kudosService.AddAsync(kudos, kudosDto.SenderId, kudosDto.ReceiverId);
@@ -29,6 +39,10 @@ namespace Adform.Academy.Kudos.Api.Controllers
             return Created($"/api/kudos/{id}", kudosDto);
         }
 
+        /// <summary>
+        /// Gets all kudos.
+        /// </summary>
+        /// <returns>Kudos list.</returns>
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -37,11 +51,17 @@ namespace Adform.Academy.Kudos.Api.Controllers
             return Ok(_mapper.Map<List<KudosDto>>(kudos));
         }
 
+        /// <summary>
+        /// Updates kudos with selected id as exchanged.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Status code 204 if successful.</returns>
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> Update(int id)
         {
             await _kudosService.UpdateAsync(id);
-            return Ok();
+            return NoContent();
         }
     }
 }

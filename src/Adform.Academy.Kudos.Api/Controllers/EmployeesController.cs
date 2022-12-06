@@ -19,6 +19,11 @@ namespace Adform.Academy.Kudos.Api.Controllers
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Registers new employee with name and surname specified.
+        /// </summary>
+        /// <param name="employeeDto"></param>
+        /// <returns>Employee created</returns>
         [HttpPost]
         public async Task<IActionResult> Add(EmployeeDto employeeDto)
         {
@@ -29,6 +34,10 @@ namespace Adform.Academy.Kudos.Api.Controllers
             return Created($"/api/employees/{id}", employeeDto);
         }
 
+        /// <summary>
+        /// Gets all registered employees.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Get()
         {
