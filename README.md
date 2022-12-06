@@ -33,3 +33,7 @@ Optional:
 ### Kudos report Endpoint
 
 * Generate kudos report for given date (year and month relevant). Report shows employee who gave the most kudos, employee who received most kudos and total kudos sent that month.
+
+## Missing functionality
+
+* Did not have time to implement kudos filtering, whole api docker support
